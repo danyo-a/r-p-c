@@ -21,26 +21,33 @@
     <button class="scissors scissors-js" onclick="usermove('scissors')">scissors</button>
     <p class="disply-js"></p>
     <div class="image" style="display:flex ; justify-content:center;align-items:center;">
+    
 
        
     </div>
+    <p class="wtl" style="font-size:100px; color:white;text-align: center;"></p>
+    
     <script>
         function usermove(move){
             let result;
+            
             let imvive = `<img src="paper.jpeg" alt="" width="100px" class="image">`
             let computer=computermove();
             if(move===computer){
                 console.log(`its tie. you choose ${move} computer choose ${computer}`);
-                result=`its tie. you choose ${move} computer choose ${computer}`;
+                result=` <b>its tie.</b> you choose ${move} computer choose ${computer}`;
                 document.querySelector('.image').innerHTML=`its tie. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
                 result=`its tie. you choose ${move} computer choose ${computer}` 
+                
 
             } else if(move==='rock' && computer==='paper'){
                 console.log(`you lose you choose ${move} computer choose ${computer} `);
                 result= `you lose you choose ${move} computer choose ${computer} `;
                 document.querySelector('.image').innerHTML=`you lose. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
+               
+               
             } else if(move==='paper' && computer==='rock'){
-                console.log(`you win you choose ${move} computer choose ${computer} `);
+                console.log(`you win . you choose ${move} computer choose ${computer} `);
                 result=`you win you choose ${move} computer choose ${computer} `;
                 document.querySelector('.image').innerHTML=`you win. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
             } else if(move==='rock' && computer==='scissors'){
@@ -62,6 +69,7 @@
             }
             
             document.querySelector('.disply-js').innerHTML=result;
+            document.querySelector('.wtl').innerHTML=result.slice(0,8);
 
         }
         function computermove(){
