@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rock paper scissors</title>
+</head>
+<body>
+    <button class="rock rock-js" onclick="usermove('rock')">rock</button>
+    <button class="paper paper-js" onclick="usermove('paper')">paper</button>
+    <button class="scissors scissors-js" onclick="usermove('scissors')">scissors</button>
+    <p class="disply-js"></p>
+    <div class="image">
+
+       
+    </div>
+    <script>
+        function usermove(move){
+            let result;
+            let imvive = `<img src="paper.jpeg" alt="" width="100px" class="image">`
+            let computer=computermove();
+            if(move===computer){
+                console.log(`its tie. you choose ${move} computer choose ${computer}`);
+                result=`its tie. you choose ${move} computer choose ${computer}`;
+                document.querySelector('.image').innerHTML=`its tie. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
+                result=`its tie. you choose ${move} computer choose ${computer}` 
+
+            } else if(move==='rock' && computer==='paper'){
+                console.log(`you lose you choose ${move} computer choose ${computer} `);
+                result= `you lose you choose ${move} computer choose ${computer} `;
+                document.querySelector('.image').innerHTML=`you lose. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
+            } else if(move==='paper' && computer==='rock'){
+                console.log(`you win you choose ${move} computer choose ${computer} `);
+                result=`you win you choose ${move} computer choose ${computer} `;
+                document.querySelector('.image').innerHTML=`you win. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
+            } else if(move==='rock' && computer==='scissors'){
+                console.log(`you win you choose ${move} computer choose ${computer} `);
+                result=`you win you choose ${move} computer choose ${computer} `;
+                document.querySelector('.image').innerHTML=`you win. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
+            } else if(move==='paper' && computer==='scissors'){
+                console.log(`you lose you choose ${move} computer choose ${computer} `);
+                result=`you lose you choose ${move} computer choose ${computer} `;
+                document.querySelector('.image').innerHTML=`you lose. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
+            } else if(move==='scissors' && computer==='paper'){
+                console.log(`you win you choose ${move} computer choose ${computer} `);
+                result=`you win you choose ${move} computer choose ${computer} `;
+                document.querySelector('.image').innerHTML=`you lose. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
+            } else if(move==='scissors' && computer==='rock'){
+                console.log(`you lose you choose ${move} computer choose ${computer} `);
+                result=`you lose you choose ${move} computer choose ${computer} `;
+                document.querySelector('.image').innerHTML=`you lose. you choose <img src="${move}.jpeg" alt="" width="100px" class="image"> computer choose <img src="${computer}.jpeg" alt="" width="100px" class="image">`
+            }
+            
+            document.querySelector('.disply-js').innerHTML=result;
+
+        }
+        function computermove(){
+            let randomnum = Math.random();
+            if(randomnum > 0 && randomnum <=1/3 ){
+               return 'rock'
+            } else  if(randomnum > 1/3 && randomnum <=2/3 ){
+                return 'paper'
+            } else  if(randomnum > 2/3 && randomnum <=1 ){
+                
+                return 'scissors'
+            }
+        }
+       
+        
+
+    </script>
+</body>
+</html>
